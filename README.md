@@ -1,73 +1,150 @@
-# Welcome to your Lovable project
+# ONE ELEVEN - Dashboard Demo
 
-## Project info
+Este é um dashboard funcional para WhatsApp + IA + CRM, pronto para deploy na Vercel.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## ✅ O que está incluído
 
-## How can I edit this code?
+- ✅ **Dashboard completo** com todas as páginas funcionando
+- ✅ **Dados de demonstração** (mock data)
+- ✅ **UI moderna** com Shadcn/UI e Tailwind
+- ✅ **Sem autenticação** - acesso direto ao dashboard
+- ✅ **Configuração Vercel** pronta
 
-There are several ways of editing your application.
+## 🚀 Deploy na Vercel
 
-**Use Lovable**
+### Método 1: Via Git (Recomendado)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+1. Crie um repositório Git e faça push deste código
+2. Conecte o repositório na Vercel
+3. A Vercel detecta Vite automaticamente
+4. Deploy! 🎉
 
-Changes made via Lovable will be committed automatically to this repo.
+### Método 2: Via CLI
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install -g vercel
+cd oneeleven-funcional-vercel
+vercel
 ```
 
-**Edit a file directly in GitHub**
+## 💻 Desenvolvimento Local
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+# Instalar dependências
+npm install
 
-**Use GitHub Codespaces**
+# Rodar em desenvolvimento
+npm run dev
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Build para produção
+npm run build
 
-## What technologies are used for this project?
+# Preview do build
+npm run preview
+```
 
-This project is built with:
+## 📁 Estrutura do Projeto
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/     # Componentes React e UI
+├── contexts/       # Contextos (WorkspaceContext)
+├── data/          # Dados de demonstração (demoData.ts)
+├── hooks/         # React hooks customizados
+├── lib/           # Utilitários
+├── pages/         # Páginas do dashboard
+│   ├── Overview.tsx
+│   ├── Clients.tsx
+│   ├── Instances.tsx
+│   ├── Inbox.tsx
+│   ├── Leads.tsx
+│   ├── Pipeline.tsx
+│   ├── FollowUps.tsx
+│   ├── Converted.tsx
+│   ├── Bot.tsx
+│   └── Settings.tsx
+├── App.tsx        # Componente principal
+└── main.tsx       # Entry point
+```
 
-## How can I deploy this project?
+## 🎨 Páginas Disponíveis
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `/overview` - Dashboard principal (rota padrão)
+- `/clients` - Gestão de clientes
+- `/instances` - Instâncias do WhatsApp
+- `/inbox` - Caixa de entrada
+- `/leads` - Gestão de leads
+- `/pipeline` - Pipeline de vendas
+- `/follow-ups` - Follow-ups
+- `/converted` - Conversões
+- `/bot` - Configuração do bot
+- `/settings` - Configurações
 
-## Can I connect a custom domain to my Lovable project?
+## ⚙️ Configuração
 
-Yes, you can!
+Este projeto **NÃO requer variáveis de ambiente** porque usa dados de demonstração.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Se você quiser conectar dados reais:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+1. Edite `src/data/demoData.ts` para usar uma API real
+2. Ou configure Supabase/Firebase/outro backend
+3. Adicione as variáveis de ambiente necessárias
+
+## 🔧 Tecnologias Utilizadas
+
+- **React 18** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool
+- **Tailwind CSS** - Styling
+- **Shadcn/UI** - Componentes UI
+- **React Router** - Navegação
+- **Recharts** - Gráficos
+- **Lucide React** - Ícones
+
+## 📝 Notas Importantes
+
+- ✅ **Sem autenticação** - Para demo/preview apenas
+- ✅ **Dados mock** - Todos os dados são de demonstração
+- ✅ **SPA routing** - vercel.json configurado corretamente
+- ✅ **Sem dependências do Lovable** - Pronto para produção
+
+## 🐛 Resolução de Problemas
+
+### Tela preta após deploy?
+
+1. Verifique Build Logs na Vercel
+2. Confirme que o build completou sem erros
+3. Verifique o Console do navegador (F12)
+4. Certifique-se que vercel.json está incluído no deploy
+
+### Build falha?
+
+```bash
+# Limpe e reinstale
+rm -rf node_modules package-lock.json
+npm install
+npm run build
+```
+
+### Assets não carregam?
+
+- Verifique se `/public` está incluído no deploy
+- Assets devem estar em `/public/` (não `/src/`)
+
+## 📞 Próximos Passos
+
+Para transformar em produção:
+
+1. **Adicionar autenticação** (Supabase, Auth0, etc)
+2. **Conectar API real** para dados
+3. **Configurar workspace real** (remover mock)
+4. **Adicionar analytics** (Google Analytics, Plausible, etc)
+5. **Configurar domínio customizado** na Vercel
+
+## 📄 Licença
+
+Projeto criado via Lovable e adaptado para produção na Vercel.
+
+---
+
+**Deploy com confiança! Este código está pronto para produção.** 🚀
